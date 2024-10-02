@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 <?php 
-echo "Bem-vindo ao nosso site, <br>";
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-echo "<br>";
+// fala que o usuario é falso determinando uma variavel
+$usuario_autenticado = false;
 
-echo "E_mail: ";
-echo $_POST['email'];
-echo '<br>';
-echo "Senha: ";
-echo $_POST['senha'];
+// define uma array com o email e a senha do usuario
+$usuario_cadastrado = [
+    ['email' => 'admin@senai.br',
+     'senha' => 12345,
+    ],
+    ['email' => 'aluno@senai.br',
+    'senha' => 'abcde',
+    ],
+    ['email' => 'suporte@senai.br',
+    'senha' => '1a2b3c'
+    ]
+];
+
+// usa do foreach para ver se a senha e o email estão corretos
+foreach($usuario_cadastrado as $user){
+    if($user['email'] == $_POST['email'] && $user['senha'] == $_POST['senha']){
+        $usuario_autenticado = true;
+    }
+}
+
+// usa do if para mostrar usuario indentificado caso as informações estiver correta e se não estiver volta a pagina inicial
+if($usuario_autenticado == true){
+    echo 'Usuario autenticado com sucesso!, Bem vindo';
+}else{
+    // echo 'Usuario ou senha incorretos';
+    header('Location: index.php?login=erro');
+}
 ?> 
-</body>
-</html>
