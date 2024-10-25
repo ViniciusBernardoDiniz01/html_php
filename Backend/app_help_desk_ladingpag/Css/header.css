@@ -1,0 +1,37 @@
+
+header{
+    background-color: var(--azul);
+    margin: 2px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: medium;
+    opacity: 0.9;
+    box-shadow: 0 0 30px 0 black;
+ 
+}
+.imagem{
+    margin:4px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    right: 450px;
+}
+.text{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    position: relative;
+    top: 15px;
+}
+.cor{
+    color: var(--azulclaro);
+}
+.cor2{
+    color: var(--azulescuro);
+}
+.login{
+    position: relative;
+    left: 475px;
+    bottom: 50px;
+}
